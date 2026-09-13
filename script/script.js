@@ -24,4 +24,5 @@ function updatetime() {
 updatetime();
 setInterval(updatetime, 1000);
 
+// wifi status icon
 const wifiIcon = document.querySelector("#wifi-status");

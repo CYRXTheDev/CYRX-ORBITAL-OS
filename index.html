@@ -10,7 +10,6 @@
   <body>
     <header>
       <nav class="navbar">
-      
         <div class="nav-brand">
           <img src="assets/logo.png" alt="CYRX SentinelOS Logo" />
           <h1 class="header-title">
@@ -21,7 +20,6 @@
 
         <!-- Search Bar -->
         <div class="search-container">
-      
           <svg
             class="search-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,15 +34,38 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
 
-       
           <input
             type="text"
             id="search-input"
             placeholder="Search anything..."
           />
         </div>
-        <div class="time-container">
-          <span id="time"></span>
+
+        <!-- Right Side Controls -->
+        <div class="nav-right">
+          <div class="status-icons">
+            <div class="wifi-container" id="wifi-status">
+              <svg
+                class="wifi-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12.55a11 11 0 0 1 14 0"></path>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+              </svg>
+            </div>
+          </div>
+
+          <div class="time-container">
+            <span id="time"></span>
+          </div>
         </div>
       </nav>
     </header>
@@ -92,6 +113,30 @@
         </ul>
       </div>
     </aside>
+
+    <!-- Windows-style Taskbar -->
+    <footer class="taskbar">
+      <div class="taskbar-apps">
+        <button class="taskbar-icon">
+          <img src="assets/home.png" alt="App" />
+        </button>
+        <button class="taskbar-icon">
+          <img src="assets/explorer.png" alt="Explorer App" />
+        </button>
+        <button class="taskbar-icon">
+          <img src="assets/gallery.png" alt="Gallery App" />
+        </button>
+        <button class="taskbar-icon">
+          <img src="assets/notes.png" alt="Notes App" />
+        </button>
+        <button class="taskbar-icon">
+          <img src="assets/terminal.png" alt="Terminal App" />
+        </button>
+        <button class="taskbar-icon">
+          <img src="assets/settings.png" alt="Settings App" />
+        </button>
+      </div>
+    </footer>
     <script src="script/script.js"></script>
   </body>
 </html>

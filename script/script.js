@@ -25,7 +25,16 @@ function dragElement(element){
     e.preventDefault;
     initialX = e.clientX;
     initialY = e.clientY;
-    
+    document.onmouseup = stopDragging;
+    document.onmousemove = moveElement;
+  }
+   
+
+  function moveElement(e){
+    currentX = initialX - e.clientX;
+    currentY = initialY - e.clientY;
+
+    initialX = e.clientX
   }
 
 }

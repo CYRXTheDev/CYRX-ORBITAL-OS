@@ -147,6 +147,59 @@
           <img src="assets/settings.png" alt="Settings App" />
         </button>
       </div>
+    <!-- CYRX Terminal App Window -->
+<div class="window terminal-window" id="terminal-window">
+  <!-- Header Bar / Drag Handle -->
+  <div class="window-header" id="terminal-windowheader">
+    <div class="header-left">
+      <div class="window-controls">
+        <button class="win-btn close-btn" id="terminal-close" title="Close"></button>
+        <button class="win-btn minimize-btn" id="terminal-minimize" title="Minimize"></button>
+        <button class="win-btn maximize-btn" id="terminal-maximize" title="Maximize"></button>
+      </div>
+      <span class="window-title">cyrx@sentinel-os: ~</span>
+    </div>
+    <div class="header-right">
+      <span class="terminal-status">SSH: CONNECTED</span>
+    </div>
+  </div>
+
+  <!-- Terminal Display Body -->
+  <div class="terminal-body" id="terminal-body">
+    <!-- ASCII Header / Banner -->
+    <pre class="terminal-banner">
+  _____   _______   ______  _    _ 
+ / ____| |  __ \ \ / /  _ \| |  | |
+| |  __  | |__) \ V /| |_) | |__| |
+| | |_ | |  _  / > < |  _ <|  __  |
+| |__| | | | \ \/ . \| |_) | |  | |
+ \_____| |_|  \_\_/\_\____/|_|  |_|
+ CYRX SentinelOS Terminal [Version 1.0.4]
+ Type <span class="highlight">'help'</span> for available commands.
+    </pre>
+
+    <!-- Output Logs Area -->
+    <div class="terminal-output" id="terminal-output">
+      <div class="terminal-line">
+        <span class="prompt-user">cyrx@sentinel</span>:<span class="prompt-path">~</span>$ systemctl status satellite-array
+      </div>
+      <div class="terminal-line response">[OK] Sentinel-1 Orbital Array: Online & Syncing</div>
+    </div>
+
+    <!-- Active Input Command Line -->
+    <div class="terminal-input-line">
+      <span class="prompt-user">cyrx@sentinel</span>:<span class="prompt-path">~</span>$&nbsp;
+      <input 
+        type="text" 
+        class="terminal-input" 
+        id="terminal-input" 
+        autocomplete="off" 
+        spellcheck="false" 
+        autofocus 
+      />
+    </div>
+  </div>
+</div>
     </footer>
   </main>
     <script src="script/script.js"></script>

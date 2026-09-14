@@ -10,7 +10,7 @@ function showWelcomeScreen() {
   welcomeScreen.classList.add('hide');
   }
 }
-drageElement(document.getElementById('welcome'));
+dragElement(document.getElementById('welcome'));
 function dragElement(element){
   let initialX = 0 , initialY = 0;
   let currentX = 0 , currentY = 0;
@@ -21,8 +21,8 @@ function dragElement(element){
     element.onmousedown = startDragging;
   }
 
-  function startDargging(e){
-    e.preventDefault;
+  function startDragging(e){
+    e.preventDefault();
     initialX = e.clientX;
     initialY = e.clientY;
     document.onmouseup = stopDragging;
@@ -34,9 +34,16 @@ function dragElement(element){
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
 
-    initialX = e.clientX
-  }
+    initialX = e.clientX;
+    initialY =  e.clientY;
 
+    element.style.top = (element.offsetTop - currentY) + 'px';
+    element.style.left = (element.offsetLeft - currentX) + 'px';
+  }
+ function stopDragging(){
+  document.onmousemove = null;
+  document.onmouseup = null;
+ }
 }
 updatetime();
 setTimeout(showWelcomeScreen, 3000);

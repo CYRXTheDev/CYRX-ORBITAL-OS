@@ -1,14 +1,15 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+html,
 body {
-  background-color: #0f1d39;
-  font-family: Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Tinatanggal ang scrollbar ng buong screen */
 }
-
 
 .navbar {
   display: flex;
@@ -38,7 +39,6 @@ body {
   color: rgb(65, 83, 172);
 }
 
-
 .search-container {
   display: flex;
   align-items: center;
@@ -47,7 +47,6 @@ body {
   border-radius: 20px;
   width: 320px;
   border: 1px solid #162c54;
-
 
   position: absolute;
   left: 50%;
@@ -63,7 +62,6 @@ body {
   flex-shrink: 0;
 }
 
-
 .search-container input {
   background: transparent;
   border: none;
@@ -77,10 +75,9 @@ body {
   color: #6b82a8;
 }
 
-
 .sidebar {
-  margin-top: 74px; 
-  height: calc(100vh - 74px); 
+  margin-top: 74px;
+  height: calc(100vh - 74px);
   width: 180px;
   position: fixed;
   z-index: 1;
@@ -118,6 +115,87 @@ body {
   height: 20px;
   object-fit: contain;
 }
-#time{
-  color: #ffffff;
+
+#time {
+  color: #a0aec0; /* Soft gray/blueish color para maging hawig sa header UI */
+  font-size: 13px;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* I-align ang icons at time sa kanan */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto; /* Itutulak ang buong group papuntang kanang bahagi */
+}
+
+.wifi-container {
+  display: flex;
+  align-items: center;
+}
+
+.wifi-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff; /* Puti para litaw sa madilim na background */
+  display: block;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background-color: rgba(10, 15, 30, 0.85); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  display: flex;
+  justify-content: center; /* I-center ang icons */
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000; /* Mananatili sa ibabaw ng ibang elements */
+}
+
+.taskbar-apps {
+  display: flex;
+  gap: 10px;
+}
+
+.taskbar-icon {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.taskbar-icon:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Hover effect */
+}
+
+.taskbar-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.wallpaper {
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  z-index: -1; /* Ilagay sa likod ng lahat ng elements */
+  background-size: cover;
+  background-position: center;
 }

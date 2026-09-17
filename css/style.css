@@ -8,16 +8,19 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Tinatanggal ang scrollbar ng buong screen */
+  overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* NAVBAR */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Inihihiwalay ang Brand sa Kaliwa, Search sa Kanan */
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(0, 8, 36);
   padding: 12px 30px;
-  position: relative; /* Kailangan para ma-center nang maayos ang search bar */
+  position: relative;
+  z-index: 100;
 }
 
 .nav-brand {
@@ -27,14 +30,14 @@ body {
 }
 
 .nav-brand img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .header-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(65, 83, 172);
 }
@@ -47,13 +50,11 @@ body {
   border-radius: 20px;
   width: 320px;
   border: 1px solid #162c54;
-
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* SEARCH ICON */
 .search-icon {
   width: 16px;
   height: 16px;
@@ -71,38 +72,49 @@ body {
   width: 100%;
 }
 
-.search-container input::placeholder {
-  color: #6b82a8;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
+.wifi-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
+
+#time {
+  color: #a0aec0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* SIDEBAR */
 .sidebar {
-  margin-top: 74px;
-  height: calc(100vh - 74px);
+  height: calc(100vh - 64px);
   width: 180px;
   position: fixed;
-  z-index: 1;
-  top: 0;
+  top: 64px;
   left: 0;
   background-color: rgb(0, 8, 36);
   padding-top: 20px;
+  z-index: 90;
 }
 
 .sidebar ul {
   list-style: none;
-  padding: 0;
 }
 
 .sidebar li a {
   display: flex;
-  align-items: center; /* Inayos: 'center' imbes na 'row' */
+  align-items: center;
   gap: 15px;
   text-decoration: none;
   color: #4c70de;
   padding: 12px 20px;
-  font-size: 16px;
-  transition:
-    background-color 0.2s,
-    color 0.2s;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
 .sidebar li a:hover {
@@ -116,53 +128,100 @@ body {
   object-fit: contain;
 }
 
-#time {
-  color: #a0aec0; /* Soft gray/blueish color para maging hawig sa header UI */
-  font-size: 13px;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+/* DESKTOP & WALLPAPER */
+.desktop {
+  position: fixed;
+  top: 64px;
+  left: 180px;
+  width: calc(100vw - 180px);
+  height: calc(100vh - 64px - 48px);
 }
 
-/* I-align ang icons at time sa kanan */
-.nav-right {
+.wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* WINDOW SYSTEM */
+.window {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 400px;
+  height: 300px;
+  background-color: #0d1e3d;
+  border: 1px solid #162c54;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-left: auto; /* Itutulak ang buong group papuntang kanang bahagi */
+  flex-direction: column;
+  z-index: 500;
+  overflow: hidden;
 }
 
-.wifi-container {
+.window-header {
+  background-color: #000824;
+  padding: 8px 12px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  cursor: move;
+  user-select: none;
 }
 
-.wifi-icon {
-  width: 20px;
-  height: 20px;
-  stroke: #ffffff; /* Puti para litaw sa madilim na background */
-  display: block;
+.window-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
 }
 
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff5f56;
+}
+
+.window-body {
+  flex: 1;
+  padding: 10px;
+}
+
+.window-body textarea {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  resize: none;
+  font-family: inherit;
+}
+
+/* TASKBAR */
 .taskbar {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 48px;
-  background-color: rgba(10, 15, 30, 0.85); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  background-color: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(10px);
   display: flex;
-  justify-content: center; /* I-center ang icons */
+  justify-content: center;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000; /* Mananatili sa ibabaw ng ibang elements */
+  z-index: 1000;
 }
 
 .taskbar-apps {
@@ -176,11 +235,11 @@ body {
   padding: 6px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: 0.2s;
 }
 
 .taskbar-icon:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* Hover effect */
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .taskbar-icon img {
@@ -188,31 +247,37 @@ body {
   height: 24px;
 }
 
-.wallpaper {
-  background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 50%;
-  z-index: -1; /* Ilagay sa likod ng lahat ng elements */
-  background-size: cover;
-  background-position: center;
-}
+/* WELCOME SCREEN */
 .welcome-screen {
-  position: absolute;
+  position: fixed;
   color: white;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); 
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  gap: 15px;
 }
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #4c70de;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #6897dd;
+}
+
 .hide {
-  display: none;
+  display: none !important;
 }

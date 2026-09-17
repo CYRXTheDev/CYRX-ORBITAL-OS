@@ -3,83 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CYRX SentinelOS</title>
+    <title>CYRX OrbitalOS</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="assets/logo.png" type="image/png" />
   </head>
 
   <body>
-    <div class="welcome-screen">
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcome-screen">
       <h1 class="welcome-title">Welcome to CYRX OrbitallOS</h1>
-      <p class="welcome-para">Welcome to the CRYX Sentinel OS, created by Cyrus and Madhav. Inspired by astronomy, this OS lets you explore many features and apps.</p>
+      <p class="welcome-para">
+        Welcome to the CRYX Orbital OS, created by Cyrus and Madhav. Inspired by astronomy, this OS lets you explore many features and apps.
+      </p>
+      <button type="button" id="close-welcome" class="btn-primary">Enter OS</button>
     </div>
-  <main>
 
-    <header>
-      <nav class="navbar">
-        <div class="nav-brand">
-          <img src="assets/logo.png" alt="CYRX SentinelOS Logo" />
-          <h1 class="header-title">
-            <span style="color: antiquewhite">CYRX</span> ORBITAL
-            <span style="color: #6897dd">OS</span>
-          </h1>
-        </div>
+    <main>
+      <!-- Navigation / Top Bar -->
+      <header>
+        <nav class="navbar">
+          <div class="nav-brand">
+            <img src="assets/logo.png" alt="CYRX SentinelOS Logo" />
+            <h1 class="header-title">
+              <span style="color: antiquewhite">CYRX</span> ORBITAL
+              <span style="color: #6897dd">OS</span>
+            </h1>
+          </div>
 
-        <!-- Search Bar -->
-        <div class="search-container">
-          <svg
-            class="search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
+          <!-- Search Bar -->
+          <div class="search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="search-input" placeholder="Search anything..." />
+          </div>
 
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search anything..."
-          />
-        </div>
-
-        <!-- Right Side Controls -->
-        <div class="nav-right">
-          <div class="status-icons">
-            <div class="wifi-container" id="wifi-status">
-              <svg
-                class="wifi-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12.55a11 11 0 0 1 14 0"></path>
-                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                <line x1="12" y1="20" x2="12.01" y2="20"></line>
-              </svg>
+          <!-- Right Controls -->
+          <div class="nav-right">
+            <div class="status-icons">
+              <div class="wifi-container" id="wifi-status">
+                <svg class="wifi-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12.55a11 11 0 0 1 14 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="time-container">
+              <span id="time"></span>
             </div>
           </div>
+        </nav>
+      </header>
 
-          <div class="time-container">
-            <span id="time"></span>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Sidebar -->
-    <aside>
-      <div class="sidebar">
+      <!-- Sidebar -->
+      <aside class="sidebar">
         <ul>
           <li>
             <a id="home-link" href="#">
@@ -118,40 +98,48 @@
             </a>
           </li>
         </ul>
-      </div>
-    </aside>
+      </aside>
 
-    <!-- Wallpaper -->
-    <div class="wallpaper"></div>
-      <img src="assets/wallpaper.png" alt="Wallpaper" />
-    </div>
+      <!-- Desktop & Wallpaper -->
+      <div class="desktop">
+        <img class="wallpaper" src="assets/wallpaper.png" alt="Wallpaper" />
 
-    <!-- Windows-style Taskbar -->
-    <footer class="taskbar">
-      <div class="taskbar-apps">
-        <button type="button" class="taskbar-icon">
-          <img src="assets/home.png" alt="Home App" />
-        </button>
-        <button type="button" class="taskbar-icon">
-          <img src="assets/explorer.png" alt="Explorer App" />
-        </button>
-        <button type="button" class="taskbar-icon">
-          <img src="assets/gallery.png" alt="Gallery App" />
-        </button>
-        <button type="button" class="taskbar-icon">
-          <img src="assets/notes.png" alt="Notes App" />
-        </button>
-        <button type="button" class="taskbar-icon">
-          <img src="assets/terminal.png" alt="Terminal App" />
-        </button>
-        <button type="button" class="taskbar-icon">
-          <img src="assets/settings.png" alt="Settings App" />
-        </button>
+        <div class="window hide" id="notes-app">
+          <div class="window-header" id="notes-app-header">
+            <span class="window-title">Notes</span>
+            <button class="close-btn" id="close-notes">&times;</button>
+          </div>
+          <div class="window-body">
+            <textarea placeholder="Type your notes here..."></textarea>
+          </div>
+        </div>
       </div>
- 
-  
-    </footer>
-  </main>
+
+      <!-- Taskbar -->
+      <footer class="taskbar">
+        <div class="taskbar-apps">
+          <button type="button" class="taskbar-icon" id="taskbar-home">
+            <img src="assets/home.png" alt="Home App" />
+          </button>
+          <button type="button" class="taskbar-icon" id="taskbar-explorer">
+            <img src="assets/explorer.png" alt="Explorer App" />
+          </button>
+          <button type="button" class="taskbar-icon" id="taskbar-gallery">
+            <img src="assets/gallery.png" alt="Gallery App" />
+          </button>
+          <button type="button" class="taskbar-icon" id="taskbar-notes">
+            <img src="assets/notes.png" alt="Notes App" />
+          </button>
+          <button type="button" class="taskbar-icon" id="taskbar-terminal">
+            <img src="assets/terminal.png" alt="Terminal App" />
+          </button>
+          <button type="button" class="taskbar-icon" id="taskbar-settings">
+            <img src="assets/settings.png" alt="Settings App" />
+          </button>
+        </div>
+      </footer>
+    </main>
+
     <script src="script/script.js"></script>
   </body>
 </html>

@@ -9,20 +9,14 @@ let taskbar = document.querySelectorAll('.taskbar .taskbar-apps .taskbar-icons')
     time.innerText = timetodisplay;
 
 }
+import { openElement } from "./modules/openElement.js";
 import { dragElement } from "./modules/dragElement.js";
 import { closeElement } from "./modules/closeElement.js";
 
-taskbar.forEach((element) => {
-    element.addEventListener('click' , () => {
-        element.classList.remove('hide');
-    })
-})
+taskbar.forEach((element) => openElement(element));
 
-sidebar.forEach((element) => {
-element.addEventListener('click' , () => {
-    element.classList.remove('hide');
-})
-})
+sidebar.forEach((element) => openElement(element));
+
 
 
 updatetime();
